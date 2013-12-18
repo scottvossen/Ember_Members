@@ -1,10 +1,9 @@
 App.User = DS.Model.extend({
   // supported types: string, number, boolean, and date
-  id:         DS.attr('number'),
-  firstName:  DS.attr('string'),
-  lastName:   DS.attr('string'),
-  isAwesome:  DS.attr('boolean'),
-  dob:        DS.attr('date'),
+  firstName: DS.attr('string'),
+  lastName: DS.attr('string'),
+  isAwesome: DS.attr('boolean'),
+  dob: DS.attr('date'),
 
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
@@ -12,25 +11,25 @@ App.User = DS.Model.extend({
 });
 
 App.User.FIXTURES = [
- {
-   id:        1,
-   firstName: 'Scott',
-   lastName:  'Vossen',
-   isAwesome: true,
-   dob:       new Date('5-31-1987'),
- },
- {
-   id:        2,
-   firstName: 'Issac',
-   lastName:  'Alexander',
-   isAwesome: true,
-   dob:       new Date('11-17-2013'),
- },
- {
-   id:        3,
-   firstName: 'Paul',
-   lastName:  'Martin',
-   isAwesome: false,
-   dob:       new Date('10-02-1956'),
- }
+  {
+    id: 1,
+    firstName: "Scott",
+    lastName: 'Vossen',
+    isAwesome: true,
+    dob: new Date('5-31-1987'),
+  },
+  {
+    id: 2,
+    firstName: "Issac",
+    lastName: 'Alexander',
+    isAwesome: true,
+    dob: new Date('11-17-2013'),
+  },
+  {
+    id: 3,
+    firstName: "Paul",
+    lastName: 'Martin',
+    isAwesome: false,
+    dob: new Date('10-02-1956'),
+  }
 ];

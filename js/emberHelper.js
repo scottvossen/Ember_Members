@@ -12,7 +12,7 @@ var EmberHelper = (function() {
 			// substitute any '/' for '__' as per naming conventions
 			var find = '/';
 			var re = new RegExp(find, 'g');
-			fileName = str.replace(re, '__');
+			fileName = name.replace(re, '__');
 		}
 
 		if (!isPrecompiled) {

@@ -6,11 +6,10 @@
 <ul class="list-group col-md-6">
 	{{#each itemController="user"}}
 		<li class="list-group-item">
-			<span 
-				{{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
-				{{action "toggleAwesomeness" on="click"}}>
-			</span>
+			<span {{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
+				    {{action "toggleAwesomeness" on="click"}}></span>
       {{fullName}}
+      <span class="glyphicon glyphicon-remove" {{action "removeUser" on="click"}}></span>
       <a href="#"><span class="badge pull-right">{{numTodos}}</span></a>
     </li>
 	{{/each}}

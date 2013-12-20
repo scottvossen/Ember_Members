@@ -1,3 +1,11 @@
 /* Put your CSS here */
 .ember-application {
 }
+
+.glyphicon-user.is-awesome {
+  color: #0066FF;
+}
+
+.list-group.skinny {
+	max-width: 400px;
+}

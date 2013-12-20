@@ -3,15 +3,15 @@
 </div>
 <p class="lead">Manage your users!</p>
 
-<ul class="list-unstyled">
+<ul class="list-group col-md-6">
 	{{#each itemController="user"}}
-		<li>
+		<li class="list-group-item">
 			<span 
-				{{bind-attr class=":glyphicon :glyphicon-user isAwesome"}} 
+				{{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
 				{{action "toggleAwesomeness" on="click"}}>
 			</span>
       {{fullName}}
-      <a href="#"><span class="badge">{{numTodos}}</span></a>
+      <a href="#"><span class="badge pull-right">{{numTodos}}</span></a>
     </li>
 	{{/each}}
 </ul>

@@ -4,6 +4,7 @@ App.User = DS.Model.extend({
   lastName: DS.attr('string'),
   isAwesome: DS.attr('boolean'),
   dob: DS.attr('date'),
+  numTodos: DS.attr('number'),
 
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
@@ -17,6 +18,7 @@ App.User.FIXTURES = [
     lastName: 'Vossen',
     isAwesome: true,
     dob: new Date('5-31-1987'),
+    numTodos: 1,
   },
   {
     id: 2,
@@ -24,6 +26,7 @@ App.User.FIXTURES = [
     lastName: 'Alexander',
     isAwesome: true,
     dob: new Date('11-17-2013'),
+    numTodos: 3,
   },
   {
     id: 3,
@@ -31,5 +34,6 @@ App.User.FIXTURES = [
     lastName: 'Martin',
     isAwesome: false,
     dob: new Date('10-02-1956'),
+    numTodos: 105,
   }
 ];

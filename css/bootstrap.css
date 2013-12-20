@@ -2757,6 +2757,10 @@ input[type="button"].btn-block {
   content: "\e008";
 }
 
+.glyphicon-user.is-awesome {
+  color: #0066FF;
+}
+
 .glyphicon-film:before {
   content: "\e009";
 }

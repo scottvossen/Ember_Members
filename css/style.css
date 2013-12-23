@@ -10,6 +10,12 @@
 	max-width: 400px;
 }
 
+a .badge:hover{
+  background-color: #428bca;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 li .destroy {
 	display: none;
 }

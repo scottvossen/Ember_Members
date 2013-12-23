@@ -9,7 +9,7 @@
 			<span {{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
 				    {{action "toggleAwesomeness" on="click"}}></span>
       {{fullName}}
-      <span class="glyphicon glyphicon-remove" {{action "removeUser" on="click"}}></span>
+      <span class="glyphicon glyphicon-remove destroy" {{action "removeUser" on="click"}}></span>      	
       <a href="#"><span class="badge pull-right">{{numTodos}}</span></a>
     </li>
 	{{/each}}

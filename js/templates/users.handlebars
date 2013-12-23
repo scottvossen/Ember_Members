@@ -13,4 +13,9 @@
       <a href="#"><span class="badge pull-right">{{numTodos}}</span></a>
     </li>
 	{{/each}}
+
+	<li class="list-group-item">
+    <span class="glyphicon glyphicon-plus green" {{action "createUser" on="click"}}></span>
+		{{input type="text" id="new-user" placeholder="Add a new user" value=newUserFullName action="createUser"}}
+  </li>
 </ul>

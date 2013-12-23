@@ -2,6 +2,10 @@
 .ember-application {
 }
 
+.green {
+	color: green;
+}
+
 .glyphicon-user.is-awesome {
   color: #0066FF;
 }

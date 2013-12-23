@@ -25,7 +25,7 @@ App.UserController = Ember.ObjectController.extend({
    acceptChanges: function() {
       this.set('isEditing', false);
 
-      if (Ember.isEmpty(this.get('model.title'))) {
+      if (Ember.isEmpty(this.get('model.fullName'))) {
         this.send('removeUser');
       } else {
         this.get('model').save();

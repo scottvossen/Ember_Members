@@ -8,9 +8,15 @@
 		<li class="list-group-item">
 			<span {{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
 				    {{action "toggleAwesomeness" on="click"}}></span>
-      {{fullName}}
-      <span class="glyphicon glyphicon-remove destroy" {{action "removeUser" on="click"}}></span>
-      <a href="#"><span class="badge pull-right">{{numTodos}}</span></a>
+
+      {{#if isEditing}}
+        {{edit-full-name class="edit" value=fullName focus-out="acceptChanges" insert-newline="acceptChanges"}}
+      {{else}}
+        <label {{action "editUser" on="doubleClick"}}>{{fullName}}</label>
+	      <span class="glyphicon glyphicon-remove destroy" {{action "removeUser" on="click"}}></span>
+      {{/if}}
+
+	    <a href="#"><span class="badge pull-right">{{numTodos}}</span></a>
     </li>
 	{{/each}}
 

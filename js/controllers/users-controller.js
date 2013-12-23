@@ -12,11 +12,11 @@ App.UsersController = Ember.ArrayController.extend({
     createUser: function() {
       // Get the new user name set by the "New User" text field
       var fullName = this.get('newUserFullName');
-      if (!fullName || !fullName.trim()) { return false; }
+      if (!fullName || !fullName.trim()) { return; }
 
       var nameParts = User.parseFullName(fullName);
       if(!nameParts || !nameParts.isValid) {
-        return false;
+        return;
       }
 
       // Create the new Todo model

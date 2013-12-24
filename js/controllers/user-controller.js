@@ -16,6 +16,27 @@ App.UserController = Ember.ObjectController.extend({
     }
   }.property('model.isAwesome'),
 
+  fullName: function(key, value) {
+
+    var model = this.get('model');
+    
+    if (value === undefined) {
+      // property being used as a getter
+      return model.get('fullName');
+    
+    } else {
+      // property being used as a setter
+      var name = User.parseFullName(value);
+      if (!name) {
+        return;
+      }
+
+      model.setProperties({firstName: name.firstName, lastName: name.lastName });
+      model.save();
+      return value;
+    }
+  }.property('model.fullName'),
+
   actions: {
 
    editUser: function() {

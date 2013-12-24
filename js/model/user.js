@@ -6,23 +6,8 @@ App.User = DS.Model.extend({
   dob: DS.attr('date', { defaultValue: new Date() }),
   numTodos: DS.attr('number', { defaultValue: 0 }),
 
-  fullName: function(key, value) {
-    
-    if (!value) {
-      // used as a getter
-      return this.get('firstName') + ' ' + this.get('lastName');
-    }
-
-    // validate
-    var name = User.parseFullName(value);
-    if (!name) {
-      return;
-    }
-
-    // commit
-    this.set('firstName', name.firstName);
-    this.set('lastName', name.lastName);
-    this.save();
+  fullName: function() {
+    return this.get('firstName') + ' ' + this.get('lastName');
   }.property('firstName', 'lastName'),
 });
 
@@ -33,9 +18,9 @@ var User = (function() {
       var first = fullName.split(' ').slice(0, -1).join(' ');
       var last = fullName.split(' ').slice(-1).join(' ');
 
-      // if (!first || !last) {
-      //   return;
-      // }
+      if (!first || !last) {
+        return;
+      }
 
       return {
         firstName: first,

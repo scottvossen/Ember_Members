@@ -3,6 +3,11 @@ App.Router.map(function() {
 	this.resource('users', function() {
     	this.route('awesome');
 	});
+	this.resource('todos', function() {
+    	this.route('awesome');
+	});
+	this.resource('about');
+	this.resource('contact');
 });
 
 App.IndexRoute = Ember.Route.extend({
@@ -13,7 +18,6 @@ App.IndexRoute = Ember.Route.extend({
 
 App.UsersRoute = Ember.Route.extend({
 	model: function() {
-		// return ['red', 'yellow', 'blue'];
 		return this.store.find('user');
 	}
 });
@@ -33,5 +37,17 @@ App.UsersAwesomeRoute = Ember.Route.extend({
 
 	renderTemplate: function(controller) {
 		this.render('todos/index', { controller: controller });
+	}
+});
+
+App.TodosRoute = Ember.Route.extend({
+	model: function() {
+		return this.store.find('todo');
+	}
+});
+
+App.TodosIndexRoute = Ember.Route.extend({
+	model: function() {
+		return this.modelFor('todos');
 	}
 });

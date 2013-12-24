@@ -3,9 +3,9 @@ App = Ember.Application.create({
 });
 
 // fixture data
-// App.ApplicationAdapter = DS.FixtureAdapter.extend();
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 // local storage
-App.ApplicationAdapter = DS.LSAdapter.extend({
-  namespace: 'users-emberjs'
-});
+// App.ApplicationAdapter = DS.LSAdapter.extend({
+//   namespace: 'users-emberjs'
+// });

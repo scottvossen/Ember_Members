@@ -14,8 +14,10 @@ App.UsersController = Ember.ArrayController.extend({
       var fullName = this.get('newUserFullName');
       if (!fullName || !fullName.trim()) { return; }
 
-      var nameParts = User.parseFullName(fullName);
-      if(!nameParts || !nameParts.isValid) {
+      var first = fullName.split(' ').slice(0, -1).join(' ');
+      var last = fullName.split(' ').slice(-1).join(' ');
+
+      if (!first || !last) {
         return;
       }
 

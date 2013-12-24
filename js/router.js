@@ -4,7 +4,8 @@ App.Router.map(function() {
     	this.route('awesome');
 	});
 	this.resource('todos', function() {
-    	this.route('awesome');
+    	this.route('active');
+    	this.route('completed');
 	});
 	this.resource('about');
 	this.resource('contact');
@@ -49,5 +50,29 @@ App.TodosRoute = Ember.Route.extend({
 App.TodosIndexRoute = Ember.Route.extend({
 	model: function() {
 		return this.modelFor('todos');
+	}
+});
+
+App.TodosActiveRoute = Ember.Route.extend({
+	model: function() {
+		return this.store.filter('todo', function(todo) {
+			return !todo.get('isCompleted');
+		});
+	},
+
+	renderTemplate: function(controller) {
+		this.render('todos/index', { controller: controller });
+	}
+});
+
+App.TodosCompletedRoute = Ember.Route.extend({
+	model: function() {
+		return this.store.filter('todo', function(todo) {
+			return todo.get('isCompleted');
+		});
+	},
+
+	renderTemplate: function(controller) {
+		this.render('todos/index', { controller: controller });
 	}
 });

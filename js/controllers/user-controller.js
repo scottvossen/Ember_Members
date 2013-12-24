@@ -26,14 +26,14 @@ App.UserController = Ember.ObjectController.extend({
     
     } else {
       // property being used as a setter
-      var first = fullName.split(' ').slice(0, -1).join(' ');
-      var last = fullName.split(' ').slice(-1).join(' ');
+      var first = value.split(' ').slice(0, -1).join(' ');
+      var last = value.split(' ').slice(-1).join(' ');
 
       if (!first || !last) {
         return;
       }
 
-      model.setProperties({firstName: name.firstName, lastName: name.lastName });
+      model.setProperties({firstName: first, lastName: last });
       model.save();
       return value;
     }

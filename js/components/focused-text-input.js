@@ -4,4 +4,4 @@ App.FocusedTextInput = Ember.TextField.extend({
 	}
 });
 
-Ember.Handlebars.helper('foused-text-input', App.EditFullNameView);
+Ember.Handlebars.helper('focused-text-input', App.FocusedTextInput);

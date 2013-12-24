@@ -23,7 +23,8 @@ App.UsersController = Ember.ArrayController.extend({
 
       // Create the new Todo model
       var user = this.store.createRecord('user', {
-        fullName: fullName,
+        firstName: first,
+        lastName: last,
       });
 
       // Clear the "New User" text field

@@ -26,8 +26,10 @@ App.UserController = Ember.ObjectController.extend({
     
     } else {
       // property being used as a setter
-      var name = User.parseFullName(value);
-      if (!name) {
+      var first = fullName.split(' ').slice(0, -1).join(' ');
+      var last = fullName.split(' ').slice(-1).join(' ');
+
+      if (!first || !last) {
         return;
       }
 

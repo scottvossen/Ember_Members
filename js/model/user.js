@@ -11,28 +11,6 @@ App.User = DS.Model.extend({
   }.property('firstName', 'lastName'),
 });
 
-var User = (function() {
-
-  return {
-    parseFullName : function(fullName) {
-      var first = fullName.split(' ').slice(0, -1).join(' ');
-      var last = fullName.split(' ').slice(-1).join(' ');
-
-      if (!first || !last) {
-        return;
-      }
-
-      return {
-        firstName: first,
-        lastName: last,
-        isValid: function() {
-          return this.first && this.last;
-        },
-      };
-    },
-  };
-}());
-
 App.User.FIXTURES = [
   {
     id: 1,

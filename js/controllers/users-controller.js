@@ -1,5 +1,9 @@
 App.UsersController = Ember.ArrayController.extend({
 
+  awesome: function() {
+    return this.filterBy('isAwesome', true).get('length');
+  }.property('@each.isAwesome'),
+
   actions: {
     createUser: function() {
       // Get the new user name set by the "New User" text field

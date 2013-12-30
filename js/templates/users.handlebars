@@ -3,25 +3,4 @@
 </div>
 <p class="lead">Manage your users!</p>
 
-<ul class="list-group col-md-6">
-	{{#each itemController="user"}}
-		<li class="list-group-item">
-			<span {{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
-				    {{action "toggleAwesomeness" on="click"}}></span>
-
-      {{#if isEditing}}
-        {{focused-text-input class="edit" value=fullName focus-out="acceptChanges" insert-newline="acceptChanges"}}
-      {{else}}
-        <label {{action "editUser" on="doubleClick"}}>{{fullName}}</label>
-	      <span class="glyphicon glyphicon-remove destroy" {{action "removeUser" on="click"}}></span>
-      {{/if}}
-
-  	  {{#link-to "todos"}}<span class="badge pull-right">{{todos.length}}</span>{{/link-to}}
-    </li>
-	{{/each}}
-
-	<li class="list-group-item">
-    <span class="glyphicon glyphicon-plus green" {{action "createUser" on="click"}}></span>
-		{{input type="text" id="new-user" placeholder="Add a new user" value=newUserFullName action="createUser"}}
-  </li>
-</ul>
+{{outlet}}

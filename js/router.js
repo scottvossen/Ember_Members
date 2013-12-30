@@ -2,10 +2,16 @@ App.Router.map(function() {
 	this.route("index", { path: "/" });
 	this.resource('users', function() {
     	this.route('awesome');
-	});
-	this.resource('todos', function() {
-    	this.route('active');
-    	this.route('completed');
+		this.resource('user', { path: ':user_id' }, function() {
+			this.resource('todos', function() {
+				this.route('active');
+				this.route('completed');
+			});
+		});
+		this.resource('todos', function() {
+			this.route('active');
+			this.route('completed');
+		});
 	});
 	this.resource('about');
 	this.resource('contact');
@@ -37,7 +43,7 @@ App.UsersAwesomeRoute = Ember.Route.extend({
 	},
 
 	renderTemplate: function(controller) {
-		this.render('users', { controller: controller });
+		this.render('users/index', { controller: controller });
 	}
 });
 

@@ -1,4 +1,4 @@
-App.UsersController = Ember.ArrayController.extend({
+App.UsersController = App.UsersIndexController = Ember.ArrayController.extend({
 
   awesome: function() {
     return this.filterBy('isAwesome', true).get('length');

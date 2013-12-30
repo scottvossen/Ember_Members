@@ -19,7 +19,7 @@
     <span class="glyphicon glyphicon-plus green" {{action "createUser" on="click"}}></span>
     {{input type="text" id="new-user" placeholder="Add a new user" value=newUserFullName action="createUser"}}
     <div class="pull-right">
-      {{#link-to "users.awesome" activeClass="active"}}Awesome{{/link-to}} | 
+      {{#link-to "users.awesome" activeClass="active"}}Awesome({{awesome}}){{/link-to}} | 
       {{#link-to "users.index" activeClass="active"}}All{{/link-to}}
     </div>
   </li>

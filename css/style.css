@@ -37,3 +37,7 @@ li .destroy:hover {
 li:hover .destroy {
 	display: inline-block;
 }
+
+.active {
+	font-weight: bold;
+}

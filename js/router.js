@@ -23,6 +23,7 @@ App.IndexRoute = Ember.Route.extend({
 	}
 });
 
+// =========== USERS ================
 App.UsersRoute = Ember.Route.extend({
 	model: function() {
 		return this.store.find('user');
@@ -47,6 +48,7 @@ App.UsersAwesomeRoute = Ember.Route.extend({
 	}
 });
 
+// =========== TODOS ================
 App.TodosRoute = Ember.Route.extend({
 	model: function() {
 		return this.store.find('todo');

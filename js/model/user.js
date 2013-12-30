@@ -4,7 +4,7 @@ App.User = DS.Model.extend({
   lastName: DS.attr('string'),
   isAwesome: DS.attr('boolean', { defaultValue: false }),
   dob: DS.attr('date', { defaultValue: new Date() }),
-  numTodos: DS.attr('number', { defaultValue: 0 }),
+  todos: DS.hasMany('todo', {async:true}),
 
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
@@ -18,7 +18,7 @@ App.User.FIXTURES = [
     lastName: "Vossen",
     isAwesome: true,
     dob: new Date('5-31-1987'),
-    numTodos: 1,
+    todos: [1, 2],
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ App.User.FIXTURES = [
     lastName: "Alexander",
     isAwesome: true,
     dob: new Date('11-17-2013'),
-    numTodos: 3,
+    todos: [],
   },
   {
     id: 3,
@@ -34,6 +34,6 @@ App.User.FIXTURES = [
     lastName: "Martin",
     isAwesome: false,
     dob: new Date('10-02-1956'),
-    numTodos: 105,
+    todos: [],
   }
 ];

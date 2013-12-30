@@ -1,6 +1,7 @@
 App.Todo = DS.Model.extend({
   title: DS.attr('string'),
   isCompleted: DS.attr('boolean'),
+  user: DS.belongsTo('user'),
 
   isCompletedChanged: function() {
     // deal with the change
@@ -11,16 +12,17 @@ App.Todo.FIXTURES = [
  {
    id: 1,
    title: 'Learn Ember.js',
-   isCompleted: true
+   isCompleted: true,
+   user: 1,
  },
  {
    id: 2,
    title: '...',
-   isCompleted: false
+   isCompleted: false,
  },
  {
    id: 3,
    title: 'Profit!',
-   isCompleted: false
+   isCompleted: false,
  }
 ];

@@ -31,13 +31,13 @@ App.UsersIndexRoute = Ember.Route.extend({
 
 App.UsersAwesomeRoute = Ember.Route.extend({
 	model: function() {
-		return this.store.filter('user', function(todo) {
-			return !todo.get('isAwesome');
+		return this.store.filter('user', function(user) {
+			return user.get('isAwesome');
 		});
 	},
 
 	renderTemplate: function(controller) {
-		this.render('todos/index', { controller: controller });
+		this.render('users', { controller: controller });
 	}
 });
 

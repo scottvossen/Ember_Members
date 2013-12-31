@@ -1,8 +1,16 @@
-App.UsersController = App.UsersIndexController = Ember.ArrayController.extend({
+App.UsersController = 
+App.UsersIndexController = 
+App.UsersAwesomeController = Ember.ArrayController.extend({
+  sortProperties: ['lastName', 'firstName'],
+  sortAscending: true,
 
   awesome: function() {
     return this.filterBy('isAwesome', true).get('length');
   }.property('@each.isAwesome'),
+
+  total: function() {
+    return this.get('length');
+  }.property('length'),
 
   actions: {
     createUser: function() {

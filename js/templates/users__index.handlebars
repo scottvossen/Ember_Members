@@ -15,7 +15,7 @@
         <span class="glyphicon glyphicon-remove destroy" {{action "removeUser" on="click"}}></span>
       {{/if}}
         
-      {{#link-to 'todo' user}}<span class="badge pull-right">{{todos.length}}</span>{{/link-to}}
+      {{#link-to 'todos' user}}<span class="badge pull-right">{{todos.length}}</span>{{/link-to}}
       {{#link-to 'user' user}}<span class="glyphicon glyphicon-edit pull-right"></span>{{/link-to}}
     </li>
   {{/each}}

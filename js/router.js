@@ -3,14 +3,10 @@ App.Router.map(function() {
 	this.resource('users', function() {
     	this.route('awesome');
 		this.resource('user', { path: ':user_id' }, function() {
-			this.resource('todo', function() {
+			this.resource('todos', function() {
 				this.route('active');
 				this.route('completed');
 			});
-		});
-		this.resource('todos', function() {
-			this.route('active');
-			this.route('completed');
 		});
 	});
 	this.resource('about');
@@ -52,7 +48,11 @@ App.UsersAwesomeRoute = Ember.Route.extend({
 App.UserRoute = Ember.Route.extend({
 	model: function(params) {
 		return this.store.find('user', params.user_id);
-	}
+	},
+
+	serialize: function(model){
+		return { user_id: (model == null) ? -1 : model.get('id')};
+	},
 });
 
 App.UserIndexRoute = Ember.Route.extend({

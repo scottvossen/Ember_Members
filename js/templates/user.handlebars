@@ -1,5 +1,9 @@
 <div class="page-header">
-  <h1>{{fullName}}</h1>
+  <h1>
+      <span {{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
+            {{action "toggleAwesomeness" on="click"}}></span>
+      {{fullName}}
+  </h1>
 </div>
 
 {{outlet}}

@@ -3,7 +3,7 @@ App.Router.map(function() {
 	this.resource('users', function() {
     	this.route('awesome');
 		this.resource('user', { path: ':user_id' }, function() {
-			this.resource('todos', function() {
+			this.resource('todo', function() {
 				this.route('active');
 				this.route('completed');
 			});
@@ -45,6 +45,19 @@ App.UsersAwesomeRoute = Ember.Route.extend({
 
 	renderTemplate: function(controller) {
 		this.render('users/index', { controller: controller });
+	}
+});
+
+// =========== USER ================
+App.UserRoute = Ember.Route.extend({
+	model: function(params) {
+		return this.store.find('user', params.user_id);
+	}
+});
+
+App.UserIndexRoute = Ember.Route.extend({
+	model: function() {
+		return this.modelFor('user');
 	}
 });
 

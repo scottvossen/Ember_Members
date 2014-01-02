@@ -1,5 +1,9 @@
+<div class="page-header">
+  <h1>Users</h1>
+</div>
+
 <ul class="list-group col-md-6">
-  {{#each itemController="user"}}
+  {{#each user in model itemController="user"}}
     <li class="list-group-item">
       <span {{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
             {{action "toggleAwesomeness" on="click"}}></span>
@@ -10,8 +14,9 @@
         <label {{action "editUser" on="doubleClick"}}>{{fullName}}</label>
         <span class="glyphicon glyphicon-remove destroy" {{action "removeUser" on="click"}}></span>
       {{/if}}
-
-      {{#link-to "todos"}}<span class="badge pull-right">{{todos.length}}</span>{{/link-to}}
+        
+      {{#link-to 'todos'}}<span class="badge pull-right">{{todos.length}}</span>{{/link-to}}
+      {{#link-to 'user' user}}<span class="glyphicon glyphicon-edit pull-right"></span>{{/link-to}}
     </li>
   {{/each}}
 
@@ -24,3 +29,5 @@
     </div>
   </li>
 </ul>
+
+{{outlet}}

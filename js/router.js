@@ -63,8 +63,26 @@ App.UserIndexRoute = Ember.Route.extend({
 
 // =========== TODOS ================
 App.TodosRoute = Ember.Route.extend({
-	model: function() {
-		return this.store.find('todo');
+	model: function(params) {
+		var id = params.user_id;
+		var user = this.modelFor('user');
+
+		if (!user) {
+			// use all the todos
+			return this.store.find('todo');
+		}
+
+		var todos = this.store.filter('todo', function(todo) {
+			var owner = todo.get('user');
+
+			if (!owner) {
+				return false;
+			}
+
+			return owner.id == user.id;
+		});
+
+		return todos;
 	}
 });
 

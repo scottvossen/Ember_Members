@@ -19,6 +19,7 @@ App.Todo.FIXTURES = [
    id: 2,
    title: '...',
    isCompleted: false,
+   user: 1,
  },
  {
    id: 3,

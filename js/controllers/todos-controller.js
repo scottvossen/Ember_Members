@@ -36,7 +36,7 @@ App.TodosController = Ember.ArrayController.extend({
       // Create the new Todo model
       var todo = this.store.createRecord('todo', {
         title: title,
-        isCompleted: false
+        isCompleted: false,
       });
 
       // Clear the "New Todo" text field

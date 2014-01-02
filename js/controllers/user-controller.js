@@ -59,6 +59,7 @@ App.UserController = Ember.ObjectController.extend({
       var user = this.get('model');
       user.deleteRecord();
       user.save();
+      this.transitionTo('users');
     },
 
     toggleAwesomeness: function() {

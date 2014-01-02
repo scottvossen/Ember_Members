@@ -2,7 +2,12 @@
   <h1>
       <span {{bind-attr class=":glyphicon :glyphicon-user isAwesome"}}
             {{action "toggleAwesomeness" on="click"}}></span>
-      {{fullName}}
+
+      {{#if isEditing}}
+        {{focused-text-input class="edit" value=fullName focus-out="acceptChanges" insert-newline="acceptChanges"}}
+      {{else}}
+        <label {{action "editUser" on="doubleClick"}}>{{fullName}}</label>
+      {{/if}}
   </h1>
 </div>
 

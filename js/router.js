@@ -93,10 +93,26 @@ App.TodosIndexRoute = Ember.Route.extend({
 });
 
 App.TodosActiveRoute = Ember.Route.extend({
-	model: function() {
-		return this.store.filter('todo', function(todo) {
-			return !todo.get('isCompleted');
+	model: function(params) {
+		var id = params.user_id;
+		var user = this.modelFor('user');
+
+		if (!user) {
+			// use all the todos
+			return this.store.find('todo');
+		}
+
+		var todos = this.store.filter('todo', function(todo) {
+			var owner = todo.get('user');
+
+			if (!owner) {
+				return false;
+			}
+
+			return owner.id == user.id && !todo.get('isCompleted');;
 		});
+
+		return todos;
 	},
 
 	renderTemplate: function(controller) {
@@ -105,10 +121,26 @@ App.TodosActiveRoute = Ember.Route.extend({
 });
 
 App.TodosCompletedRoute = Ember.Route.extend({
-	model: function() {
-		return this.store.filter('todo', function(todo) {
-			return todo.get('isCompleted');
+	model: function(params) {
+		var id = params.user_id;
+		var user = this.modelFor('user');
+
+		if (!user) {
+			// use all the todos
+			return this.store.find('todo');
+		}
+
+		var todos = this.store.filter('todo', function(todo) {
+			var owner = todo.get('user');
+
+			if (!owner) {
+				return false;
+			}
+
+			return owner.id == user.id && todo.get('isCompleted');;
 		});
+
+		return todos;
 	},
 
 	renderTemplate: function(controller) {

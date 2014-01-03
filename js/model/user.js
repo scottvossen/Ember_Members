@@ -26,7 +26,7 @@ App.User.FIXTURES = [
     lastName: "Alexander",
     isAwesome: true,
     dob: new Date('11-17-2013'),
-    todos: [3, 4],
+    todos: [3],
   },
   {
     id: 3,

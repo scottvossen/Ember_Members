@@ -28,8 +28,9 @@ App.Todo.FIXTURES = [
    user: 2,
  },
  {
-   id: 3,
+   id: 4,
    title: 'Profit!',
    isCompleted: false,
+   user: 2,
  }
 ];

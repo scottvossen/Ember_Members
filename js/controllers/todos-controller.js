@@ -1,4 +1,5 @@
 App.TodosController = Ember.ArrayController.extend({
+   needs: ['user'],
 
   remaining: function() {
     return this.filterBy('isCompleted', false).get('length');
@@ -33,17 +34,20 @@ App.TodosController = Ember.ArrayController.extend({
       var title = this.get('newTitle');
       if (!title.trim()) { return; }
 
-      // Create the new Todo model
-      var todo = this.store.createRecord('todo', {
-        title: title,
-        isCompleted: false,
+      var user = this.get('controllers.user.content');
+      var todo = this.get('store').createRecord('todo', { 
+        user: user, 
+        title: title, 
+        isCompleted: false 
+      });
+
+      todo.save().then(function(todo){
+        user.get('todos').pushObject(todo);
+        // user.save();
       });
 
       // Clear the "New Todo" text field
       this.set('newTitle', '');
-
-      // Save the new model
-      todo.save();
     },
 
     clearCompleted: function() {

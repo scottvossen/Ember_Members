@@ -109,7 +109,7 @@ App.TodosActiveRoute = Ember.Route.extend({
 				return false;
 			}
 
-			return owner.id == user.id && !todo.get('isCompleted');;
+			return owner.id == user.id && !todo.get('isCompleted');
 		});
 
 		return todos;

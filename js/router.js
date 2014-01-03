@@ -72,6 +72,9 @@ App.TodosRoute = Ember.Route.extend({
 			return this.store.find('todo');
 		}
 
+		// force todos to be loaded
+		var todos = user.get('todos');
+
 		var todos = this.store.filter('todo', function(todo) {
 			var owner = todo.get('user');
 
@@ -89,6 +92,11 @@ App.TodosRoute = Ember.Route.extend({
 App.TodosIndexRoute = Ember.Route.extend({
 	model: function() {
 		return this.modelFor('todos');
+	},
+	actions: {
+		reload: function() {
+		  this.get('model').reload();
+		}
 	}
 });
 
@@ -101,6 +109,9 @@ App.TodosActiveRoute = Ember.Route.extend({
 			// use all the todos
 			return this.store.find('todo');
 		}
+
+		// force todos to be loaded
+		var todos = user.get('todos');
 
 		var todos = this.store.filter('todo', function(todo) {
 			var owner = todo.get('user');
@@ -130,6 +141,9 @@ App.TodosCompletedRoute = Ember.Route.extend({
 			return this.store.find('todo');
 		}
 
+		// force todos to be loaded
+		var todos = user.get('todos');
+		
 		var todos = this.store.filter('todo', function(todo) {
 			var owner = todo.get('user');
 
